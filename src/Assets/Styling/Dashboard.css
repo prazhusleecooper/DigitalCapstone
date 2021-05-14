@@ -1,0 +1,30 @@
+.dashboard-page {
+    background-color: #f5f6fb;
+    height: 90vh;
+}
+
+.dashboard-header {
+    color: gray;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f5f6fb;
+}
+
+.no-applications-section {
+    height: 50vh;
+    margin: 0 auto;
+    border: 1px solid #ffffff;
+    text-align: center;
+    color: gray;
+    background-color: #ffffff;
+}
+
+.begin-btn {
+    background-color: #dc2e26;
+    color: #ffffff;
+    border: none;
+}
+
+.default-dashboard {
+    width: 100vw;
+}
