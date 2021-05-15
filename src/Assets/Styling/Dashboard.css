@@ -17,6 +17,9 @@
     text-align: center;
     color: gray;
     background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
+    -moz-box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
+    box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
 }
 
 .begin-btn {
@@ -26,5 +29,54 @@
 }
 
 .default-dashboard {
-    width: 100vw;
+}
+
+.selector-text {
+    font-size: 24px;
+}
+
+.submitted-applications-btn {
+    background-color: #dc2e26;
+    cursor: pointer;
+}
+
+.submitted-applications-text {
+    color: #ffffff;
+}
+
+.new-proposal-btn {
+    background-color: #343642;
+    cursor: pointer;
+}
+
+.new-proposal-btn {
+    color: yellow;
+}
+
+.selected-dashboard {
+    height: 60vh;
+    border-radius: 15px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
+    -moz-box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
+    box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
+}
+
+tr {
+    padding: 15px 0;
+    border-bottom: 1px solid #64789a;
+}
+
+th {
+    /* width: 20%; */
+    font-weight: normal !important;
+    color: #64789a;
+}
+
+td {
+    /* width: 20%; */
+    padding: 2em 0.75em !important;
+    font-weight: bold !important;
+    color: #64789a;
 }

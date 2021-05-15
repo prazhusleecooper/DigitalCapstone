@@ -1,0 +1,43 @@
+.profile-settings-page {
+    background-color: #f5f6fb;
+    height: 90vh;
+    overflow: auto;
+}
+
+.profile-settings-header {
+    color: gray;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f5f6fb;
+}
+
+.profile-settings-section {
+    margin: 0 auto;
+}
+
+.profile-settings-inner {
+    border-radius: 15px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
+    -moz-box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
+    box-shadow: 0px 0px 13px 1px rgba(194, 194, 194, 0.75);
+}
+
+.profile-image-inner {
+    text-align: center;
+}
+
+.edit-img-btn {
+    position: relative;
+}
+
+.profile-details-section {
+    margin: 0 auto;
+}
+
+.delete-profile-btn {
+    color: red;
+    text-align: center;
+    cursor: pointer;
+}
