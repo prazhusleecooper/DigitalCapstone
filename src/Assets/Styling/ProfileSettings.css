@@ -36,6 +36,11 @@
     margin: 0 auto;
 }
 
+.update-profile-btn {
+    border: 0;
+    border-radius: 0;
+}
+
 .delete-profile-btn {
     color: red;
     text-align: center;

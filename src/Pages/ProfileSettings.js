@@ -64,7 +64,7 @@ export default class Dashboard extends Component {
     profileSettings = () => {
         return (
             <div className="profile-settings-section col-12  row mt-3 mt-md-4">
-                <div className="profile-settings-inner col-sm-11 col-md-10 col-lg-10 p-md-3 p-lg-4 my-3">
+                <div className="profile-settings-inner col-sm-11 col-md-8 col-lg-8 p-md-3 p-lg-4 my-3">
                     <div className="profile-settings row pt-3 py-md-0">
                         <div className="profile-image-section col-sm-12 col-md-4 col-lg-4">
                             <div className="profile-image-inner">
@@ -105,6 +105,10 @@ export default class Dashboard extends Component {
                                     placeholder="First name"
                                     value={this.state.firstName}
                                     disabled
+                                    style={{
+                                        borderRadius: 0,
+                                        border: "2px solid #c5c5c5",
+                                    }}
                                 />
                             </Form.Group>
 
@@ -115,6 +119,10 @@ export default class Dashboard extends Component {
                                     placeholder="Last name"
                                     value={this.state.lastName}
                                     disabled
+                                    style={{
+                                        borderRadius: 0,
+                                        border: "2px solid #c5c5c5",
+                                    }}
                                 />
                             </Form.Group>
 
@@ -127,6 +135,10 @@ export default class Dashboard extends Component {
                                     name="email"
                                     onChange={this.handleInputChange}
                                     required
+                                    style={{
+                                        borderRadius: 0,
+                                        border: "2px solid #c5c5c5",
+                                    }}
                                 />
                             </Form.Group>
 
@@ -139,6 +151,10 @@ export default class Dashboard extends Component {
                                     name="mobile"
                                     onChange={this.handleInputChange}
                                     required
+                                    style={{
+                                        borderRadius: 0,
+                                        border: "2px solid #c5c5c5",
+                                    }}
                                 />
                             </Form.Group>
 
@@ -151,6 +167,10 @@ export default class Dashboard extends Component {
                                     name="password"
                                     onChange={this.handleInputChange}
                                     required
+                                    style={{
+                                        borderRadius: 0,
+                                        border: "2px solid #c5c5c5",
+                                    }}
                                 />
                             </Form.Group>
 
@@ -163,6 +183,10 @@ export default class Dashboard extends Component {
                                     name="organization"
                                     onChange={this.handleInputChange}
                                     required
+                                    style={{
+                                        borderRadius: 0,
+                                        border: "2px solid #c5c5c5",
+                                    }}
                                 />
                             </Form.Group>
 
@@ -172,7 +196,7 @@ export default class Dashboard extends Component {
                                 <Button
                                     variant="danger"
                                     type="submit"
-                                    className="w-100"
+                                    className="w-100 update-profile-btn"
                                 >
                                     Update Profile
                                 </Button>
