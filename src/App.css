@@ -6,6 +6,14 @@
   border-color: grey;
 }
 
+body{
+  background-color: #f5f6fb;
+}
+
+p{
+  font-size: 12px;
+}
+
 .login-btn{
   width: 205px;
   height: 30px;
@@ -14,10 +22,29 @@
   background-color: black;
   color: white
 }
-
+.college {
+  width: 100%;
+  height: 100%;
+}
 .college-border{
   width:350px;
   height: 400px;
+}
+
+.capstone-content{
+  background-color: transparent slategray;
+  color: #f5f6fb;
+  opacity: 0.9;
+}
+
+.navLink{
+  color: white;
+  background-color: red;
+  font-size: x-large;
+}
+
+.capstone-content p{
+  font-size: medium;
 }
 
 .logo{

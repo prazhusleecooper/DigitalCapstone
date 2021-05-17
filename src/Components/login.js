@@ -1,40 +1,54 @@
 import React from 'react';
-import { ImageComponent } from './imageComponent';
+import { Form } from "react-bootstrap";
+import college from '../Assets/images/swinburne_university.jpg';
+import { Header } from './header';
+
+
 
 export const login = (props) =>{
   
     return(
-        <div className="container" >
-            <div className="row">
-                <div className="col-sm-12 col-md-6 col-lg-6"  style={{backgroundColor: 'gray'}}>
-            <div className="d-flex justify-content-center"> 
+        <div>
             <div>
-                <div className="pb-2">
+                <Header/>
+            </div>
+        <div className="p-5">  
+        <div className="container"  >
+            <div className="row" style={{backgroundColor: 'white', height: '500px'}}>
+            <div className="col-sm-12 col-md-6 col-lg-6">
+            <div className="d-flex align-items-center justify-content-center pb-5" style={{height: '100%'}}> 
+            <div>
+                <div className="pl-3">
                     <h4>Sign In</h4>
                 </div>
-                <div className="pb-2">
-                    <div>
-                        <p>Username</p>
-                        <input className="input-border" id="email-id"/>
-                    </div>
-                </div>
-                <div className="pb-2">
-                        <span><p>password</p></span>
-                        <input className="input-border" id="password"/>
-                </div>
-                <div className="pb-2">
+                <Form.Group className="col-sm-12 col-md-6 col-lg-6">
+                    <Form.Label style={{fontSize: '12px' }}>Username</Form.Label>
+                    <Form.Control
+                        type="text"
+                        className="input-border"
+                    />
+                </Form.Group>
+                <Form.Group className="col-sm-12 col-md-6 col-lg-6">
+                    <Form.Label style={{fontSize: '12px' }}>Password</Form.Label>
+                    <Form.Control
+                        type="text"
+                        className="input-border"
+                    />
+                </Form.Group>
+                <div className="pl-3">
                         <p>Forgot password</p>
                 </div>
-                <div className="pb-2">
+                <div className="pl-3">
                     <button className="login-btn" style={{ backgroundColor: 'black', color: 'white'}}> LOGIN </button>
                 </div>
             </div>
             </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6" style={{width: '100%'}}>
-                <ImageComponent/>
-            </div>
+            <img src={ college } className="col-sm-12 col-md-6 col-lg-6 college" alt=""/>
             </div>
         </div>
+        </div>
+        </div>
+
     )
 }
