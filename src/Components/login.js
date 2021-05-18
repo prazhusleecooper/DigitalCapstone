@@ -39,7 +39,7 @@ export const login = (props) =>{
                         <p>Forgot password</p>
                 </div>
                 <div className="pl-3">
-                    <button className="login-btn" style={{ backgroundColor: 'black', color: 'white'}}> LOGIN </button>
+                    <button className="login-btn" onClick={() => {window.location="/dashboard"}} style={{ backgroundColor: 'black', color: 'white'}}> LOGIN </button>
                 </div>
             </div>
             </div>
