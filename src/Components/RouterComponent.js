@@ -9,6 +9,7 @@ import ContactDetails from "../Pages/ContactDetails";
 import ProjectDetails from "../Pages/ProjectDetails";
 import Permissions from "../Pages/Permissions";
 import Submitted from "../Pages/Submitted";
+import About from "../Pages/About";
 
 export default class RouterComponent extends Component {
 	render() {
@@ -37,6 +38,9 @@ export default class RouterComponent extends Component {
 				</Route>
 				<Route path="/submitted">
 					<Submitted />
+				</Route>
+				<Route path="/about">
+					<About />
 				</Route>
 			</Switch>
 		);
