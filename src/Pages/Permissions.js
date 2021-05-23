@@ -185,7 +185,11 @@ export default class Permissions extends Component {
 				{this.dashboardHeader()}
 				<div className="col-11 px-5">
 					<button
-						className="go-back-btn"
+						style={{
+							background:'red',
+							color:'white',
+							border:'0px'
+						}}
 						onClick={() => {
 							window.location = "/projectDetails";
 						}}

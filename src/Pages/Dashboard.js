@@ -10,13 +10,13 @@ export default class Dashboard extends Component {
 		super(props);
 		this.state = {
 			applications: [
-				{
-					id: "abc123",
-					project: "Project ABC",
-					dateSubmitted: "21/05/2021",
-					supervisor: "Mike Sanders",
-					outcome: "APPROVED",
-				},
+				// {
+				// 	id: "abc123",
+				// 	project: "Project ABC",
+				// 	dateSubmitted: "21/05/2021",
+				// 	supervisor: "Mike Sanders",
+				// 	outcome: "APPROVED",
+				// },
 				{
 					id: "xyz312",
 					project: "Project XYZ",

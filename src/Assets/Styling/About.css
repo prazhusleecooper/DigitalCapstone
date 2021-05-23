@@ -1,0 +1,47 @@
+.hero-image-div {
+	/* height: 100%; */
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.about-text-section {
+	background-color: #209dc4;
+	color: #ffffff;
+	opacity: 80%;
+	margin: auto 0;
+	min-width: none;
+	min-height: 90vh;
+	font-size: 18px;
+}
+
+.project-subjects-section {
+	background-color: #f4f6fc;
+}
+
+.project-subjects-title-section > .title {
+	color: #209dc4;
+}
+
+.dept-title {
+	color: #ffffff;
+}
+
+.dept-title-text {
+	background-color: #209dc4;
+}
+
+.projects-offered-text {
+	color: #209dc4;
+	font-weight: bold;
+}
+
+.blue-text {
+	color: #209dc4;
+}
+
+.process-section {
+	color: grey;
+}

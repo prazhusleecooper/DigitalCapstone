@@ -11,9 +11,10 @@ import ContactDetails from "../Pages/ContactDetails";
 import ProjectDetails from "../Pages/ProjectDetails";
 import Permissions from "../Pages/Permissions";
 import Submitted from "../Pages/Submitted";
-import { login } from "./login";
+import { Login } from "./login";
 import { Register } from "./register";
 
+import About from "../Pages/About";
 
 export default class RouterComponent extends Component {
     render() {
@@ -23,7 +24,7 @@ export default class RouterComponent extends Component {
                 <Route path="/home" component={Home} />
                 <Route path="/profile" component={ProfileSettings}/>
                 <Route path="/dashboard" component={Dashboard} />
-                <Route path="/login" component={login} />
+                <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/begin">
@@ -43,6 +44,9 @@ export default class RouterComponent extends Component {
 				</Route>
 				<Route path="/submitted">
 					<Submitted />
+				</Route>
+				<Route path="/about">
+					<About />
 				</Route>
             </Switch>
         );
