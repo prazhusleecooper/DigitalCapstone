@@ -2,12 +2,47 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 
 import "../Assets/Styling/OrganisationDetails.css";
-
+import ProfileHeader from "../Components/ProfileHeader";
 export default class OrganisationDetails extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			name: "",
+			description: "",
+			address: "",
+			website: "",
+		};
 	}
+
+	// ? Non-Rendering Methods
+	// * Method to handle Inputs Value change
+	handleInputChange = (event) => {
+		this.setState({
+			...this.state,
+			[event.target.name]: event.target.value,
+		});
+	};
+	// * End of handleInputChange()
+
+	// * Method to navigate to contact details
+	navigateToContact = () => {
+		if (
+			this.state.name === "" ||
+			this.state.description === "" ||
+			this.state.address === "" ||
+			this.state.website === ""
+		) {
+			window.alert("Please fill all details to proceed");
+		} else {
+			var state = this.state;
+			localStorage.setItem("OrganisationDetails", JSON.stringify(state));
+			window.location = "/contactDetails";
+		}
+	};
+	// * End of navigateToContact()
+	// ? End of Non-Rendering Methods
+
+	//
 
 	// ? Rendering Methods
 	// * Render Dashboard Header
@@ -41,23 +76,30 @@ export default class OrganisationDetails extends Component {
 			<div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 p-0 mb-5">
 				<div className="col-12 p-4 text-center selected-section-btn">
 					<span className="selector-text selected-section-text">
-					<a style={{ color: 'yellow'}} href="/contactDetails">Organisation Details</a>	
+						<a style={{ color: "yellow" }} href="/contactDetails">
+							Organisation Details
+						</a>
 					</span>
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-						<a style={{ color: 'yellow'}} href="/contactDetails">Contact Details</a>
+						<a style={{ color: "yellow" }} href="/contactDetails">
+							Contact Details
+						</a>
 					</span>
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-					<a style={{ color: 'yellow'}} href="/projectDetails">Project Details</a>
+						<a style={{ color: "yellow" }} href="/projectDetails">
+							Project Details
+						</a>
 					</span>
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-					<a style={{ color: 'yellow'}} href="/permissions">Permissions</a>
-						
+						<a style={{ color: "yellow" }} href="/permissions">
+							Permissions
+						</a>
 					</span>
 				</div>
 			</div>
@@ -69,7 +111,7 @@ export default class OrganisationDetails extends Component {
 	selectedDashboard = () => {
 		return (
 			<div className="col-sm-12 col-md-12 col-lg-10 p-0">
-				<div className="od-selected-dashboard col-11 p-md-3 p-lg-4">
+				<div className="od-selected-dashboard col-11 p-3 p-md-3 p-lg-4">
 					<div className="col-12 px-0">
 						<strong>Part 1 - Organisation Details</strong>
 					</div>
@@ -82,19 +124,40 @@ export default class OrganisationDetails extends Component {
 					<input
 						type="text"
 						className="details-input d-input-red py-2"
+						value={this.state.name}
+						name="name"
+						onChange={this.handleInputChange}
 					/>
 
 					<div className="details-label col-12 py-2">
 						Brief Description of your business
 					</div>
-					<textarea className="details-input d-input-red d-text-area py-2" maxLength="250" />
+					<textarea
+						className="details-input d-input-red d-text-area py-2"
+						maxLength="250"
+						value={this.state.description}
+						name="description"
+						onChange={this.handleInputChange}
+					/>
 					<div className="details-label col-12 py-2">Address</div>
-					<textarea className="details-input d-input-red d-text-area py-2" maxLength="250"/>
-					<div className="details-label col-12 py-2">Name</div>
-					<input type="text" className="details-input d-last py-2" />
+					<textarea
+						className="details-input d-input-red d-text-area py-2"
+						maxLength="250"
+						value={this.state.address}
+						name="address"
+						onChange={this.handleInputChange}
+					/>
+					<div className="details-label col-12 py-2">website</div>
+					<input
+						type="text"
+						className="details-input d-last py-2"
+						value={this.state.website}
+						name="website"
+						onChange={this.handleInputChange}
+					/>
 				</div>
 
-				<div className="od-footer col-11 p-md-3 p-lg-4">
+				<div className="od-footer col-11 p-md-3 p-lg-4 mt-3 mt-md-0">
 					<Button
 						onClick={() => {
 							window.location = "/dashboard";
@@ -105,9 +168,7 @@ export default class OrganisationDetails extends Component {
 					&nbsp;&nbsp;
 					<Button
 						className="proceed-btn"
-						onClick={() => {
-							window.location = "/contactDetails";
-						}}
+						onClick={this.navigateToContact}
 					>
 						Part 2 &#62;&#62;
 					</Button>
@@ -119,18 +180,42 @@ export default class OrganisationDetails extends Component {
 
 	// ? End of Rendering Methods
 
+	//
+
+	// ? Lifecycle Methods
+	componentDidMount = () => {
+		if (localStorage.getItem("OrganisationDetails") !== null) {
+			try {
+				let organisationDetails = JSON.parse(
+					localStorage.getItem("OrganisationDetails")
+				);
+
+				this.setState({
+					name: organisationDetails.name,
+					description: organisationDetails.description,
+					address: organisationDetails.address,
+					website: organisationDetails.website,
+				});
+			} catch (err) {
+				console.log("THE ERROR:", err);
+			}
+		}
+	};
+	// ? End of Lifecycle Methods
+
 	render() {
 		return (
 			<div className="org-details-page">
+				<ProfileHeader />
 				{this.dashboardHeader()}
 				<div className="col-11 px-5">
 					<button
 						style={{
-								background:'red',
-								color:'white',
-								border:'0px'
-							}}						
-							onClick={() => {
+							background: "red",
+							color: "white",
+							border: "0px",
+						}}
+						onClick={() => {
 							window.location = "/begin";
 						}}
 					>

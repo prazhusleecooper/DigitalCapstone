@@ -4,6 +4,7 @@ import { Table } from "react-bootstrap";
 import TickIcon from "../Components/TickIcon";
 
 import "../Assets/Styling/Submitted.css";
+import ProfileHeader from "../Components/ProfileHeader";
 
 export default class Submitted extends Component {
 	constructor(props) {
@@ -74,10 +75,13 @@ export default class Submitted extends Component {
 
 	render() {
 		return (
-			<div className="dashboard-page">
-				{this.dashboardHeader()}
-				{this.emptyDashboard()}
-			</div>
+			<>
+				<ProfileHeader />
+				<div className="dashboard-page">
+					{this.dashboardHeader()}
+					{this.emptyDashboard()}
+				</div>
+			</>
 		);
 	}
 }

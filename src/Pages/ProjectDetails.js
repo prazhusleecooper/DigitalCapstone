@@ -4,12 +4,58 @@ import { Button } from "react-bootstrap";
 import TickIcon from "../Components/TickIcon";
 
 import "../Assets/Styling/OrganisationDetails.css";
+import ProfileHeader from "../Components/ProfileHeader";
 
 export default class ProjectDetails extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			projectTitle: "",
+			referredBy: "",
+			projectLength: "",
+			projectDescription: "",
+			projectSpecialisations: "",
+			projectSkills: "",
+			projectEnvironment: "",
+			researchComponent: "",
+			additionalInformation: "",
+		};
 	}
+
+	// ? Non-Rendering Methods
+	// * Method to handle Inputs Value change
+	handleInputChange = (event) => {
+		this.setState({
+			...this.state,
+			[event.target.name]: event.target.value,
+		});
+	};
+	// * End of handleInputChange()
+
+	// * Method to navigate to Permissions
+	navigateToPermissions = () => {
+		if (
+			this.state.projectTitle === "" ||
+			this.state.referredBy === "" ||
+			this.state.projectLength === "" ||
+			this.state.projectDescription === "" ||
+			this.state.projectSpecialisations === "" ||
+			this.state.projectSkills === "" ||
+			this.state.projectEnvironment === "" ||
+			this.state.researchComponent === "" ||
+			this.state.additionalInformation === ""
+		) {
+			window.alert("Please fill all details to proceed");
+		} else {
+			var state = this.state;
+			localStorage.setItem("ProjectDetails", JSON.stringify(state));
+			window.location = "/permissions";
+		}
+	};
+	// * End of navigateToPermissions()
+	// ? End of Non-Rendering Methods
+
+	//
 
 	// ? Rendering Methods
 	// * Render Dashboard Header
@@ -43,7 +89,12 @@ export default class ProjectDetails extends Component {
 			<div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 p-0 mb-5">
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-						<a style={{ color: 'yellow'}} href="/organisationDetails">Organisation Details</a>
+						<a
+							style={{ color: "yellow" }}
+							href="/organisationDetails"
+						>
+							Organisation Details
+						</a>
 					</span>
 					<div className="col-12">
 						<TickIcon />
@@ -51,7 +102,9 @@ export default class ProjectDetails extends Component {
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-					<a style={{ color: 'yellow'}} href="/contactDetails">Contact Details</a>
+						<a style={{ color: "yellow" }} href="/contactDetails">
+							Contact Details
+						</a>
 					</span>
 					<div className="col-12">
 						<TickIcon />
@@ -59,12 +112,16 @@ export default class ProjectDetails extends Component {
 				</div>
 				<div className="col-12 p-4 text-center selected-section-btn">
 					<span className="selector-text selected-section-text">
-					<a style={{ color: 'yellow'}} href="/projectDetails">Project Details</a>					
+						<a style={{ color: "yellow" }} href="/projectDetails">
+							Project Details
+						</a>
 					</span>
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-					<a style={{ color: 'yellow'}} href="/permissions">Permissions</a>					
+						<a style={{ color: "yellow" }} href="/permissions">
+							Permissions
+						</a>
 					</span>
 				</div>
 			</div>
@@ -76,7 +133,7 @@ export default class ProjectDetails extends Component {
 	selectedDashboard = () => {
 		return (
 			<div className="col-sm-12 col-md-12 col-lg-10 p-0">
-				<div className="od-selected-dashboard col-11 p-md-3 p-lg-4">
+				<div className="od-selected-dashboard col-11 p-3 p-md-3 p-lg-4">
 					<div className="col-12 px-0">
 						<strong>Part 3 - Project Details</strong>
 					</div>
@@ -91,6 +148,9 @@ export default class ProjectDetails extends Component {
 					<input
 						type="text"
 						className="details-input d-input-red py-2"
+						value={this.state.projectTitle}
+						name="projectTitle"
+						onChange={this.handleInputChange}
 					/>
 
 					<div className="details-label-multi-line col-12 py-2">
@@ -98,7 +158,13 @@ export default class ProjectDetails extends Component {
 						<br />
 						<em>Who referred you to Swinburne</em>
 					</div>
-					<input type="text" className="details-input py-2" />
+					<input
+						type="text"
+						className="details-input py-2"
+						value={this.state.referredBy}
+						name="referredBy"
+						onChange={this.handleInputChange}
+					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Estimated Project Length</strong>
@@ -107,7 +173,13 @@ export default class ProjectDetails extends Component {
 							e.g. 1 semester (12weeks), or 2 semesters(24 weeks)
 						</em>
 					</div>
-					<input type="text" className="details-input py-2" />
+					<input
+						type="text"
+						className="details-input py-2"
+						value={this.state.projectLength}
+						name="projectLength"
+						onChange={this.handleInputChange}
+					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Project Description</strong>
@@ -118,7 +190,13 @@ export default class ProjectDetails extends Component {
 							can be added at the end of the proposal.
 						</em>
 					</div>
-					<textarea className="details-input d-input-red d-text-area py-2" maxLength="250" />
+					<textarea
+						className="details-input d-input-red d-text-area py-2"
+						maxLength="250"
+						value={this.state.projectDescription}
+						name="projectDescription"
+						onChange={this.handleInputChange}
+					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Project Specialisations Area</strong>
@@ -130,7 +208,12 @@ export default class ProjectDetails extends Component {
 							& Design; Web Development & Design etc.
 						</em>
 					</div>
-					<textarea className="details-input d-text-area py-2" />
+					<textarea
+						className="details-input d-text-area py-2"
+						value={this.state.projectSpecialisations}
+						name="projectSpecialisations"
+						onChange={this.handleInputChange}
+					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Project Skills</strong>
@@ -143,7 +226,12 @@ export default class ProjectDetails extends Component {
 							Intelligence etc.
 						</em>
 					</div>
-					<textarea className="details-input d-text-area py-2" />
+					<textarea
+						className="details-input d-text-area py-2"
+						value={this.state.projectSkills}
+						name="projectSkills"
+						onChange={this.handleInputChange}
+					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Project Environment</strong>
@@ -155,7 +243,12 @@ export default class ProjectDetails extends Component {
 							AngularJS; ReactJS; XML, Windows etc.
 						</em>
 					</div>
-					<textarea className="details-input d-text-area py-2" />
+					<textarea
+						className="details-input d-text-area py-2"
+						value={this.state.projectEnvironment}
+						name="projectEnvironment"
+						onChange={this.handleInputChange}
+					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Research Component</strong>
@@ -166,7 +259,13 @@ export default class ProjectDetails extends Component {
 							AngularJS; ReactJS; XML, Windows etc.
 						</em>
 					</div>
-					<textarea className="details-input d-text-area py-2" maxLength="250"/>
+					<textarea
+						className="details-input d-text-area py-2"
+						maxLength="250"
+						value={this.state.researchComponent}
+						name="researchComponent"
+						onChange={this.handleInputChange}
+					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Additional information</strong>
@@ -176,10 +275,15 @@ export default class ProjectDetails extends Component {
 							proposal here.
 						</em>
 					</div>
-					<textarea className="details-input d-text-area d-last py-2" />
+					<textarea
+						className="details-input d-text-area d-last py-2"
+						value={this.state.additionalInformation}
+						name="additionalInformation"
+						onChange={this.handleInputChange}
+					/>
 				</div>
 
-				<div className="od-footer col-11 p-md-3 p-lg-4">
+				<div className="od-footer col-11 p-md-3 p-lg-4 mt-3 mt-md-0">
 					<Button
 						onClick={() => {
 							window.location = "/dashboard";
@@ -190,9 +294,7 @@ export default class ProjectDetails extends Component {
 					&nbsp;&nbsp;
 					<Button
 						className="proceed-btn"
-						onClick={() => {
-							window.location = "/permissions";
-						}}
+						onClick={this.navigateToPermissions}
 					>
 						Part 4 &#62;&#62;
 					</Button>
@@ -204,16 +306,46 @@ export default class ProjectDetails extends Component {
 
 	// ? End of Rendering Methods
 
+	//
+
+	// ? Lifecycle Methods
+	componentDidMount = () => {
+		if (localStorage.getItem("ProjectDetails") !== null) {
+			try {
+				let projectDetails = JSON.parse(
+					localStorage.getItem("ProjectDetails")
+				);
+
+				this.setState({
+					projectTitle: projectDetails.projectTitle,
+					referredBy: projectDetails.referredBy,
+					projectLength: projectDetails.projectLength,
+					projectDescription: projectDetails.projectDescription,
+					projectSpecialisations:
+						projectDetails.projectSpecialisations,
+					projectSkills: projectDetails.projectSkills,
+					projectEnvironment: projectDetails.projectEnvironment,
+					researchComponent: projectDetails.researchComponent,
+					additionalInformation: projectDetails.additionalInformation,
+				});
+			} catch (err) {
+				console.log("THE ERROR:", err);
+			}
+		}
+	};
+	// ? End of Lifecycle Methods
+
 	render() {
 		return (
 			<div className="org-details-page">
+				<ProfileHeader />
 				{this.dashboardHeader()}
 				<div className="col-11 px-5">
 					<button
 						style={{
-							background:'red',
-							color:'white',
-							border:'0px'
+							background: "red",
+							color: "white",
+							border: "0px",
 						}}
 						onClick={() => {
 							window.location = "/contactDetails";

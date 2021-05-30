@@ -3,6 +3,7 @@ import { Table } from "react-bootstrap";
 
 import TickIcon from "../Components/TickIcon";
 
+import ProfileHeader from "../Components/ProfileHeader";
 import "../Assets/Styling/Dashboard.css";
 
 export default class Dashboard extends Component {
@@ -178,6 +179,8 @@ export default class Dashboard extends Component {
 	render() {
 		return (
 			<div className="dashboard-page">
+				<ProfileHeader />
+
 				{this.dashboardHeader()}
 				{/* {this.emptyDashboard()} */}
 				{this.defaultDashboard()}

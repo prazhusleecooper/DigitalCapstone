@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 
+import ProfileHeader from "../Components/ProfileHeader";
 import "../Assets/Styling/BeginApplication.css";
 
 export default class BeginApplication extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			agreeToTerms: false,
+		};
 	}
 
 	// ? Rendering Methods
@@ -155,16 +158,23 @@ export default class BeginApplication extends Component {
 					<br />
 					<br />
 					<label>
-						<input type="checkbox" /> <strong>I AGREE</strong>
+						<input
+							type="checkbox"
+							checked={this.state.agreeToTerms}
+							onChange={(event) =>
+								this.setState({
+									agreeToTerms: event.target.checked,
+								})
+							}
+						/>{" "}
+						<strong>I AGREE</strong>
 					</label>
 					<br />
 					<div className="col-sm-12 col-md-2 p-0">
 						<Button
 							variant="danger"
 							className="w-100 proceed-btn"
-							onClick={() => {
-								window.location = "/organisationDetails";
-							}}
+							onClick={this.proceed}
 						>
 							<strong>PROCEED &#62;&#62;</strong>
 						</Button>
@@ -179,12 +189,47 @@ export default class BeginApplication extends Component {
 
 	// ? End of Rendering Methods
 
+	//
+
+	// ? Non-Rendering Methods
+
+	// * Method to proceed to next page
+	proceed = () => {
+		if (this.state.agreeToTerms) {
+			localStorage.setItem("agreeToTerms", true);
+			window.location = "/organisationDetails";
+		} else {
+			window.alert("Please agree to the Terms to continue");
+		}
+	};
+	// * End of proceed()
+
+	// ? End of Non-Rendering Methods
+
+	//
+
+	// ? Lifecycle methods
+	componentDidMount = () => {
+		console.log("COMPONENT MOUNTING");
+		if (localStorage.getItem("agreeToTerms") !== null) {
+			console.log("the lc::", localStorage.getItem("agreeToTerms"));
+			this.setState({
+				agreeToTerms: localStorage.getItem("agreeToTerms"),
+			});
+		}
+	};
+	// ? End of Lifecycle methods
+
 	render() {
 		return (
-			<div className="begin-application-page">
-				{this.BeginApplicationHeader()}
-				{this.beginApplicationContent()}
-			</div>
+			<>
+				<ProfileHeader />
+
+				<div className="begin-application-page">
+					{this.BeginApplicationHeader()}
+					{this.beginApplicationContent()}
+				</div>
+			</>
 		);
 	}
 }
