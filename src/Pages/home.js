@@ -23,7 +23,7 @@ export const Home = (props) => {
                         <br/>development learning oppurtunity.</p>
                 </div>
                 <div className="col-12 p-lg-3 p-md-3 p-sm-2">
-                    <button style={{background: 'white', color: 'black'}}> Learn more --> </button>
+                    <a href="/about"><button style={{background: 'white', color: 'black'}}> Learn more --> </button></a>
                 </div>
             </div>
         </div>

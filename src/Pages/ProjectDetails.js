@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import TickIcon from "../Components/TickIcon";
 
@@ -21,7 +21,18 @@ export default class ProjectDetails extends Component {
 			additionalInformation: "",
 		};
 	}
-
+	addCustomOption = (inputId, selectTagId) => {
+		let val = document.getElementById(inputId).value;
+		if (!val) {
+			alert('please fill the blank field')
+		}
+		var x = document.getElementById(selectTagId);
+		var option = document.createElement("option");
+		option.text = val;
+		option.value= val;
+		document.getElementById(inputId).value= '';
+		x.add(option);
+	}
 	// ? Non-Rendering Methods
 	// * Method to handle Inputs Value change
 	handleInputChange = (event) => {
@@ -202,61 +213,86 @@ export default class ProjectDetails extends Component {
 						<strong>Project Specialisations Area</strong>
 						<br />
 						<em>
-							e.g. Research, Mobile Application Design (Android &
-							IOS); Database Design; Network Design & Security;
-							Robotics; Application Development; Systems Analysis
-							& Design; Web Development & Design etc.
+						<Form.Group className="col-lg-12 col-md-12 col-sm-12">
+						<Form.Control as="select" onChange={this.handleInputChange} name="projectSpecialisations" id="project-specialisation">
+							<option value="">select an option</option>
+							<option value="research">Research</option>
+							<option value="Mobile Application Design (Android & IOS)">Mobile Application Design (Android & IOS)</option>
+							<option value="Network Design & Security"> Network Design & Security</option>
+							<option value="Robotics">Robotics</option>
+							<option value="Application Development">Application Development</option>
+							<option value="Systems Analysis">Systems Analysis</option>
+							<option value="Web Development & Design etc"> Web Development & Design etc</option>
+						</Form.Control>
+						</Form.Group>
+						<div className="pl-3" > 
+						<input id="spec" placeholder="others"/>
+						<button className="ml-2 btn btn-primary" onClick={() =>this.addCustomOption('spec','project-specialisation')}>add </button>
+						</div>
 						</em>
 					</div>
-					<textarea
-						className="details-input d-text-area py-2"
-						value={this.state.projectSpecialisations}
-						name="projectSpecialisations"
-						onChange={this.handleInputChange}
-					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Project Skills</strong>
 						<br />
 						<em>
-							Brief description of any specific skills students
-							will require undertaking this project. e.g. Business
-							Analysis; Systems Analysis; Project Management;
-							Software Programming; OIS; Android; Business
-							Intelligence etc.
+						<Form.Group className="col-lg-12 col-md-12 col-sm-12">
+						<Form.Control as="select" onChange={this.handleInputChange} name="projectSkills" id="project-skills">
+							<option value="">select an option</option>
+							<option value="BusinessAnalysis"> BusinessAnalysis</option>
+							<option value="Mobile Application Design (Android & IOS)">Mobile Application Design (Android & IOS)</option>
+							<option value="Systems Analysis">Systems Analysis</option>
+							<option value="Robotics">Robotics</option>
+							<option value="Project Management">Project Management</option>
+							<option value="Systems Analysis">Systems Analysis</option>
+							<option value="Software Programming">Software Programming</option>
+							<option value="IOS">IOS</option>
+							<option value="Android">Android</option>
+							<option value="Business Intelligence">Business Intelligence </option>
+						</Form.Control>
+						</Form.Group>
+						<div className="pl-3" > 
+						<input id="skills"  placeholder="others"/>
+						<button className="ml-2 btn btn-primary"  onClick={() =>this.addCustomOption('skills','project-skills')}>add </button>
+						</div>
 						</em>
 					</div>
-					<textarea
-						className="details-input d-text-area py-2"
-						value={this.state.projectSkills}
-						name="projectSkills"
-						onChange={this.handleInputChange}
-					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Project Environment</strong>
 						<br />
 						<em>
-							Hardware/Software/ Programming Languages
-							<br />
-							e.g. Android; IOS; C++; HTML; CSS; Java; SQL; NoSQL;
-							AngularJS; ReactJS; XML, Windows etc.
+							<Form.Group className="col-lg-12 col-md-12 col-sm-12">
+							<Form.Control as="select" onChange={this.handleInputChange} name="projectEnvironment" id="project-environment">
+								<option value="">select an option</option>
+								<option value="Android"> Android</option>
+								<option value="IOS">IOS</option>
+								<option value="C++">C++</option>
+								<option value="HTML">HTML</option>
+								<option value="CSS">CSS</option>
+								<option value="Systems Analysis">Systems Analysis</option>
+								<option value="Java">Java</option>
+								<option value="SQL">SQL</option>
+								<option value="Android">Android</option>
+								<option value="ReactJS">ReactJS</option>
+								<option value="AngulasJS">AngularJS</option>
+								<option value="XML">XML</option>
+								<option value="windows">Windows</option>
+							</Form.Control>
+							</Form.Group>
+							<div className="pl-3" > 
+							<input id="env" placeholder="others"/>
+							<button className="ml-2 btn btn-primary" onClick={ () => this.addCustomOption('env','project-environment')}>add </button>
+							</div>
 						</em>
 					</div>
-					<textarea
-						className="details-input d-text-area py-2"
-						value={this.state.projectEnvironment}
-						name="projectEnvironment"
-						onChange={this.handleInputChange}
-					/>
 
 					<div className="details-label-multi-line col-12 py-2">
 						<strong>Research Component</strong>
 						<br />
 						<em>
-							Hardware/Software/ Programming Languages e.g.
-							Android; IOS; C++; HTML; CSS; Java; SQL; NoSQL;
-							AngularJS; ReactJS; XML, Windows etc.
+							where applicable use this section to the state topic of research relevant to this project.
+							this may be part of project or the entire project.if nothing N/A
 						</em>
 					</div>
 					<textarea
@@ -279,6 +315,7 @@ export default class ProjectDetails extends Component {
 						className="details-input d-text-area d-last py-2"
 						value={this.state.additionalInformation}
 						name="additionalInformation"
+						maxLength="250"
 						onChange={this.handleInputChange}
 					/>
 				</div>

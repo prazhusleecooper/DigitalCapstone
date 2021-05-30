@@ -29,7 +29,7 @@ export const Login = (props) =>{
                     alert('login successful');
                     window.location="/dashboard"
                 }else{
-                    setErrorMsg(res.body.message);
+                    setErrorMsg('incorrect username or password');
                 }
             }).catch((err) => {
                 setErrorMsg('authentication failed');

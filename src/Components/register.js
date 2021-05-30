@@ -28,11 +28,11 @@ export const Register = (props) =>{
                 if(res.status === 200) {
                     // alert('registration successfull');
                     window.location="/login"
-                } else {
-                    alert(res.body.message);
+                } else if(res.status === 400) {
+                    alert('username already exists');
                 }
             }).catch((err) => {
-                setErrorMsg('authentication failed');
+                setErrorMsg('registration failed');
             }).finally(() => {
                 document.getElementById('username').value = '';
                 document.getElementById('email-id').value = '';
@@ -53,7 +53,7 @@ export const Register = (props) =>{
             <Header/>
         </div>
         <div className="p-5">  
-        <div className="container"  >
+        <div className="container">
             <div className="row" style={{backgroundColor: 'white', height: '500px'}}>
             <div className="col-sm-12 col-md-6 col-lg-6">
             <div className="d-flex align-items-center justify-content-center pb-5" style={{height: '100%'}}> 

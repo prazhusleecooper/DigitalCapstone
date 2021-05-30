@@ -19,13 +19,13 @@ export const Contact = (props) => {
             </div>
         </div>
          <div className="row">
-         <img className="w-100" src={contactBGI} style={{height:'1142px'}} alt=""/>
+         <img className="w-100" src={contactBGI} style={{height:'1200px'}} alt=""/>
          <div className="container m-5" style={{position: 'absolute', background: 'white'}}>
          <Form.Group className="col-lg-12 col-md-12 col-sm-12 pt-3">
             <Form.Label> <h2>Email us </h2></Form.Label>
         </Form.Group>
          <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-            <Form.Label> Are you a international student? </Form.Label>
+            <Form.Label className="row pl-3"> Are you a international student? <p style={{color:'red' , fontSize:'15px'}}>*</p></Form.Label>
         </Form.Group>
          <Form.Group className="col-lg-12 col-md-12 col-sm-12">
                 <Form.Check
@@ -44,28 +44,28 @@ export const Contact = (props) => {
                 />
             </Form.Group>
             <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-                <Form.Label className="">First Name </Form.Label>
+                <Form.Label className="row pl-3">First Name <p style={{color:'red',fontSize:'15px'}}>*</p></Form.Label>
                 <Form.Control
                     type="text"
                     placeholder="First Name"
                 />
             </Form.Group>
             <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-                <Form.Label>Last Name</Form.Label>
+                <Form.Label className="row pl-3">Last Name <p style={{color:'red',fontSize:'15px'}}>*</p></Form.Label>
                 <Form.Control
                     type="text"
                     placeholder="Last name"
                 />
             </Form.Group>
             <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-                <Form.Label>Email Address</Form.Label>
+                <Form.Label className="row pl-3">Email Address <p style={{color:'red',fontSize:'15px'}}>*</p></Form.Label>
                 <Form.Control
                     type="text"
                     placeholder="Email Address"
                 />
             </Form.Group>
             <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-                <Form.Label>Mobile Number</Form.Label>
+                <Form.Label className="row pl-3">Mobile Number <p style={{color:'red',fontSize:'15px'}}>*</p></Form.Label>
                 <div className="row pl-3">
                 <Form.Control as="select" className="col-4">
                     <option>+61(Australia)</option>
@@ -82,7 +82,7 @@ export const Contact = (props) => {
                 </div>
             </Form.Group>
             <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-                <Form.Label>Which best describes you ?</Form.Label>
+                <Form.Label className="row pl-3">Which best describes you ? <p style={{color:'red',fontSize:'15px'}}>*</p></Form.Label>
                 <Form.Control as="select">
                     <option>select an option</option>
                     <option>2</option>
@@ -93,7 +93,7 @@ export const Contact = (props) => {
                
             </Form.Group>
             <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-                <Form.Label>What is your highest qualification ?</Form.Label>
+                <Form.Label className="row pl-3">What is your highest qualification ? <p style={{color:'red',fontSize:'15px'}}>*</p></Form.Label>
                 <Form.Control as="select" >
                     <option>select an option</option>
                     <option>2</option>
@@ -103,7 +103,7 @@ export const Contact = (props) => {
                 </Form.Control>
             </Form.Group>
             <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-                <Form.Label>Area of interest</Form.Label>
+                <Form.Label >Area of interest</Form.Label>
                 
                 <Form.Control as="select" >
                     <option>select an option</option>
@@ -121,7 +121,7 @@ export const Contact = (props) => {
                 />
             </Form.Group>
             <Form.Group className="col-lg-12 col-md-12 col-sm-12">
-                <Form.Label>Enquiry</Form.Label>
+                <Form.Label className="row pl-3">Enquiry<p style={{color:'red',fontSize:'15px'}}>*</p></Form.Label>
                 <Form.Control
                      as="textarea" rows={3}
                 />

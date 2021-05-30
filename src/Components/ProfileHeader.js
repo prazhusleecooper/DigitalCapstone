@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import logo from "../Assets/Images/swinburne.png";
+import logo from "../Assets/images/swinburne.png";
 import "../Assets/Styling/ProfileHeader.css";
 
 export default class ProfileHeader extends Component {

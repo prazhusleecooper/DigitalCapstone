@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { Table } from "react-bootstrap";
-
-import TickIcon from "../Components/TickIcon";
 
 import "../Assets/Styling/Submitted.css";
 import ProfileHeader from "../Components/ProfileHeader";
