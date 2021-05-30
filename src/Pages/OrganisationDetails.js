@@ -41,22 +41,23 @@ export default class OrganisationDetails extends Component {
 			<div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 p-0 mb-5">
 				<div className="col-12 p-4 text-center selected-section-btn">
 					<span className="selector-text selected-section-text">
-						Organisation Details
+					<a style={{ color: 'yellow'}} href="/contactDetails">Organisation Details</a>	
 					</span>
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-						Contact Details
+						<a style={{ color: 'yellow'}} href="/contactDetails">Contact Details</a>
 					</span>
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-						Project Details
+					<a style={{ color: 'yellow'}} href="/projectDetails">Project Details</a>
 					</span>
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-						Permissions
+					<a style={{ color: 'yellow'}} href="/permissions">Permissions</a>
+						
 					</span>
 				</div>
 			</div>
@@ -86,22 +87,21 @@ export default class OrganisationDetails extends Component {
 					<div className="details-label col-12 py-2">
 						Brief Description of your business
 					</div>
-					<textarea className="details-input d-input-red d-text-area py-2" />
+					<textarea className="details-input d-input-red d-text-area py-2" maxLength="250" />
 					<div className="details-label col-12 py-2">Address</div>
-					<textarea className="details-input d-input-red d-text-area py-2" />
+					<textarea className="details-input d-input-red d-text-area py-2" maxLength="250"/>
 					<div className="details-label col-12 py-2">Name</div>
 					<input type="text" className="details-input d-last py-2" />
 				</div>
 
 				<div className="od-footer col-11 p-md-3 p-lg-4">
-					<span
-						className="d-cancel-btn"
+					<Button
 						onClick={() => {
 							window.location = "/dashboard";
 						}}
 					>
 						CANCEL
-					</span>{" "}
+					</Button>{" "}
 					&nbsp;&nbsp;
 					<Button
 						className="proceed-btn"

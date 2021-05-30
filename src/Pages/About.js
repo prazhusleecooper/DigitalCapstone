@@ -2,10 +2,16 @@ import React, { Component } from "react";
 
 import "../Assets/Styling/About.css";
 import heroImage from "../Assets/images/tumblr_oyeuw3wMAL1qa0rheo1_1280-ConvertImage.jpg";
+import { Header } from "../Components/header";
+import { Footer } from "../Components/footer";
 
 export default class About extends Component {
 	render() {
 		return (
+			<div>
+				<div>
+					<Header></Header>
+				</div>
 			<div style={{ height: "100vh" }}>
 				<div
 					className="hero-image-div col-12 d-flex flex-row align-items-center"
@@ -275,7 +281,9 @@ export default class About extends Component {
 						</div>
 					</div>
 				</div>
+				<Footer></Footer>
 			</div>
-		);
+			</div>
+			);
 	}
 }

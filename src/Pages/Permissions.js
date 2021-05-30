@@ -43,7 +43,7 @@ export default class Permissions extends Component {
 			<div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 p-0 mb-5">
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-						Organisation Details
+					<a style={{ color: 'yellow'}} href="/organisationDetails">Organisation Details</a>						
 					</span>
 					<div className="col-12">
 						<TickIcon />
@@ -51,7 +51,7 @@ export default class Permissions extends Component {
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-						Contact Details
+					<a style={{ color: 'yellow'}} href="/contactDetails">Contact Details</a>
 					</span>
 					<div className="col-12">
 						<TickIcon />
@@ -59,7 +59,7 @@ export default class Permissions extends Component {
 				</div>
 				<div className="col-12 p-4 text-center non-selected-btn">
 					<span className="selector-text non-selected-text">
-						Project Details
+					<a style={{ color: 'yellow'}} href="/projectDetails">Project Details</a>		
 					</span>
 					<div className="col-12">
 						<TickIcon />
@@ -67,7 +67,7 @@ export default class Permissions extends Component {
 				</div>
 				<div className="col-12 p-4 text-center selected-section-btn">
 					<span className="selector-text selected-section-text">
-						Permissions
+					<a style={{ color: 'yellow'}} href="/permissions">permission</a>		
 					</span>
 				</div>
 			</div>
@@ -154,14 +154,13 @@ export default class Permissions extends Component {
 				</div>
 
 				<div className="od-footer col-11 p-md-3 p-lg-4">
-					<span
-						className="d-cancel-btn"
+					<Button
 						onClick={() => {
 							window.location = "/dashboard";
 						}}
 					>
 						CANCEL
-					</span>{" "}
+					</Button>{" "}
 					&nbsp;&nbsp;
 					<Button
 						className="proceed-btn"
